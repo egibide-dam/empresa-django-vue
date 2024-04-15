@@ -20,8 +20,7 @@ onMounted(() => {
 <template>
     <div class="hello">
         <h1>Departamentos</h1>
-
-        <table class="table table-responsive">
+        <table v-if="departamentos.length" class="table table-responsive">
             <thead>
             <tr class="table-dark">
                 <th>#</th>
@@ -37,10 +36,6 @@ onMounted(() => {
             </tr>
             </tbody>
         </table>
-        <!--
-                <div v-for="departamento in departamentos" :key="departamento.id">
-                    {{ departamento.id }} {{ departamento.name }} {{ departamento.address }}
-                </div>
-        -->
+        <p v-else class="alert alert-warning">No hay datos, comprueba la consola para ver posibles errores.</p>
     </div>
 </template>
