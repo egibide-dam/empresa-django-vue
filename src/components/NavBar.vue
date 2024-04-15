@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-md bg-primary px-5">
+    <nav class="navbar navbar-expand-md bg-primary py-4 px-3">
         <RouterLink class="navbar-brand text-light" to="/">
-            <span>EmpresaDjango Vue</span>
+            <span class="display-5 px-3">EmpresaDjango Vue</span>
         </RouterLink>
         <button class="navbar-toggler border-0 text-light" type="button"
                 data-bs-toggle="collapse"
