@@ -7,9 +7,9 @@ import Footer from "@/components/Footer.vue";
 <template>
     <NavBar/>
 
-    <div class="container pt-5">
+    <div class="container-fluid pt-4">
         <div class="row">
-            <div class="col-3">
+            <div class="col-auto">
                 <Menu/>
             </div>
             <div class="col">

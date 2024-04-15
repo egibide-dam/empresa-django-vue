@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <nav class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
+    <nav class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary ancho-navegacion">
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <RouterLink class="nav-link" to="/">
@@ -19,4 +19,7 @@
 </template>
 
 <style scoped>
+.ancho-navegacion {
+    width: 15em;
+}
 </style>
