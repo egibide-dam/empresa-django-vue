@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useDepartamentoStore } from "@/stores/departamentos";
+import moment from "moment/min/moment-with-locales";
+
+moment.locale('es');
 
 const store = useDepartamentoStore();
 
@@ -26,6 +29,8 @@ onMounted(() => {
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
+                <th>Fecha alta</th>
+                <th>Actualizado</th>
             </tr>
             </thead>
             <tbody>
@@ -33,6 +38,10 @@ onMounted(() => {
                 <td>{{ departamento.id }}</td>
                 <td>{{ departamento.nombre }}</td>
                 <td>{{ departamento.telefono }}</td>
+                <td>{{ moment(departamento.created).format('LL, LTS') }}</td>
+                <td :title="moment(departamento.updated).format('LL, LTS')">
+                    {{ moment(departamento.updated).fromNow() }}
+                </td>
             </tr>
             </tbody>
         </table>
