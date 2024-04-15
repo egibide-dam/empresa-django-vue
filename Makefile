@@ -35,7 +35,7 @@ stop:
 restart: stop start
 
 workspace:
-	@docker compose exec vue /bin/bash
+	@docker compose run --rm vue /bin/bash
 
 clean:
 	@docker compose down -v --remove-orphans
