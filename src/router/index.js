@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "@/views/HomeView.vue";
+import DepartamentosView from "@/views/DepartamentosView.vue";
 
 const router = createRouter({
     linkActiveClass: 'active',
@@ -9,6 +10,11 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeView
+        },
+        {
+            path: '/departamentos',
+            name: 'departamentos',
+            component: DepartamentosView
         }
     ]
 })

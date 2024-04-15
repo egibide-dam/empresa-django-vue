@@ -9,6 +9,10 @@
                     <i class="bi bi-house me-2"></i>
                     <span>Home</span>
                 </RouterLink>
+                <RouterLink class="nav-link" to="/departamentos">
+                    <i class="bi bi-building me-2"></i>
+                    <span>Departamentos</span>
+                </RouterLink>
             </li>
         </ul>
     </nav>
