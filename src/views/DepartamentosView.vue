@@ -1,19 +1,11 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { onMounted, computed } from "vue";
 import { useDepartamentoStore } from "@/stores/departamentos";
 import moment from "moment/min/moment-with-locales";
 
 moment.locale('es');
 
 const store = useDepartamentoStore();
-
-const getDepartamentos = computed(() => {
-    return store.getDepartamentos;
-});
-
-const departamentos = computed(() => {
-    return store.departamentos;
-});
 
 onMounted(() => {
     store.fetchDepartamentos();
@@ -23,18 +15,18 @@ onMounted(() => {
 <template>
     <div class="hello">
         <h1>Departamentos</h1>
-        <table v-if="departamentos.length" class="table table-responsive">
+        <table v-if="store.getNumDepartamentos" class="table table-responsive">
             <thead>
             <tr class="table-dark">
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
-                <th>Fecha alta</th>
+                <th>Fecha de alta</th>
                 <th>Actualizado</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="departamento in getDepartamentos" :key="departamento.id">
+            <tr v-for="departamento in store.departamentos" :key="departamento.id">
                 <td>{{ departamento.id }}</td>
                 <td>{{ departamento.nombre }}</td>
                 <td>{{ departamento.telefono }}</td>
