@@ -8,7 +8,7 @@ import Menu from "@/views/Menu.vue";
             <div class="col-3">
                 <Menu/>
             </div>
-            <div class="col-auto">
+            <div class="col">
                 <RouterView/>
             </div>
         </div>
