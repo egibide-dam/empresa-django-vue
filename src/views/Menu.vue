@@ -2,9 +2,16 @@
 </script>
 
 <template>
-    <header>
-        <RouterLink to="/">Home</RouterLink>
-    </header>
+    <nav class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <RouterLink class="nav-link" to="/">
+                    <i class="bi bi-house me-2"></i>
+                    <span>Home</span>
+                </RouterLink>
+            </li>
+        </ul>
+    </nav>
 </template>
 
 <style scoped>
