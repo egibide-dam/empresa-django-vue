@@ -1,11 +1,12 @@
 <script setup>
-import { onMounted, computed } from "vue";
+import { onMounted } from "vue";
 import { useDepartamentoStore } from "@/stores/departamentos";
-import moment from "moment/min/moment-with-locales";
-
-moment.locale('es');
+import DepartamentosList from "@/views/DepartamentosList.vue";
+import DepartamentoForm from "@/views/DepartamentoForm.vue";
+import { useAuthStore } from "@/stores/auth.store.js";
 
 const store = useDepartamentoStore();
+const auth = useAuthStore();
 
 onMounted(() => {
     store.fetchDepartamentos();
@@ -13,30 +14,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="hello">
-        <h1>Departamentos</h1>
-        <table v-if="store.getNumDepartamentos" class="table table-responsive">
-            <thead>
-            <tr class="table-dark">
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Fecha de alta</th>
-                <th>Actualizado</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="departamento in store.departamentos" :key="departamento.id">
-                <td>{{ departamento.id }}</td>
-                <td>{{ departamento.nombre }}</td>
-                <td>{{ departamento.telefono }}</td>
-                <td>{{ moment(departamento.created).format('LL, LTS') }}</td>
-                <td :title="moment(departamento.updated).format('LL, LTS')">
-                    {{ moment(departamento.updated).fromNow() }}
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <p v-else class="alert alert-warning">No hay datos, comprueba la consola para ver posibles errores.</p>
-    </div>
+    <h1>Departamentos</h1>
+    <DepartamentosList/>
+    <template v-if="auth.isAuthenticated">
+        <h2>Nuevo departamento</h2>
+        <DepartamentoForm/>
+    </template>
 </template>
+
+<style scoped>
+</style>
