@@ -6,7 +6,6 @@ import Footer from "@/components/Footer.vue";
 
 <template>
     <NavBar/>
-
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-auto">
@@ -17,7 +16,6 @@ import Footer from "@/components/Footer.vue";
             </div>
         </div>
     </div>
-
     <Footer/>
 </template>
 
