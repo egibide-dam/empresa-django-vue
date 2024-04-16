@@ -40,6 +40,24 @@ export const useDepartamentoStore = defineStore("departamento", {
             } else {
                 throw new Error('User must be authenticated')
             }
+        },
+        async deleteDepartamento(departamento) {
+            const auth = useAuthStore();
+
+            if (auth.isAuthenticated) {
+                try {
+                    const response = await axios.delete(`${API_SERVER}/${API_ENDPOINT}/departamentos/${departamento.id}`, {
+                        headers: {
+                            'Authorization': auth.token,
+                        }
+                    });
+                    this.fetchDepartamentos();
+                } catch (error) {
+                    console.log(error)
+                }
+            } else {
+                throw new Error('User must be authenticated')
+            }
         }
     },
 })

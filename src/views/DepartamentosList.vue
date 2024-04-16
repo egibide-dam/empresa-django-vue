@@ -1,10 +1,12 @@
 <script setup>
 import { useDepartamentoStore } from "@/stores/departamentos";
 import moment from "moment/min/moment-with-locales";
+import { useAuthStore } from "@/stores/auth.store.js";
 
 moment.locale('es');
 
 const store = useDepartamentoStore();
+const auth = useAuthStore();
 </script>
 
 <template>
@@ -16,6 +18,7 @@ const store = useDepartamentoStore();
             <th>Teléfono</th>
             <th>Fecha de alta</th>
             <th>Actualizado</th>
+            <th v-if="auth.isAuthenticated"></th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +29,12 @@ const store = useDepartamentoStore();
             <td>{{ moment(departamento.created).format('LL, LTS') }}</td>
             <td :title="moment(departamento.updated).format('LL, LTS')">
                 {{ moment(departamento.updated).fromNow() }}
+            </td>
+            <td v-if="auth.isAuthenticated">
+                <button class="btn btn-danger" title="Borrar"
+                        @click="store.deleteDepartamento(departamento)">
+                    <i class="bi bi-trash"></i>
+                </button>
             </td>
         </tr>
         </tbody>
