@@ -2,15 +2,20 @@
 import { useDepartamentoStore } from "@/stores/departamentos";
 import moment from "moment/min/moment-with-locales";
 import { useAuthStore } from "@/stores/auth.js";
+import { onMounted } from "vue";
 
 moment.locale('es');
 
-const store = useDepartamentoStore();
+const departamentos = useDepartamentoStore();
 const auth = useAuthStore();
+
+onMounted(() => {
+    departamentos.fetch();
+});
 </script>
 
 <template>
-    <table v-if="store.numDepartamentos" class="table table-responsive">
+    <table v-if="departamentos.length" class="table table-responsive">
         <thead>
         <tr class="table-dark">
             <th>#</th>
@@ -22,7 +27,7 @@ const auth = useAuthStore();
         </tr>
         </thead>
         <tbody class="align-middle">
-        <tr v-for="departamento in store.departamentos" :key="departamento.id">
+        <tr v-for="departamento in departamentos.items" :key="departamento.id">
             <td>{{ departamento.id }}</td>
             <td>{{ departamento.nombre }}</td>
             <td>{{ departamento.telefono }}</td>
@@ -32,7 +37,7 @@ const auth = useAuthStore();
             </td>
             <td v-if="auth.isAuthenticated">
                 <button class="btn btn-danger" title="Borrar"
-                        @click="store.deleteDepartamento(departamento)">
+                        @click="departamentos.delete(departamento)">
                     <i class="bi bi-trash"></i>
                 </button>
             </td>

@@ -5,25 +5,25 @@ import { useAuthStore } from "@/stores/auth.js";
 const API_SERVER = 'http://localhost:8000';
 const API_ENDPOINT = 'api';
 
-export const useDepartamentoStore = defineStore("departamento", {
+export const useDepartamentoStore = defineStore("departamentos", {
     state: () => ({
-        departamentos: [],
+        items: [],
     }),
     getters: {
-        numDepartamentos(state) {
-            return state.departamentos.length;
+        length(state) {
+            return state.items.length;
         }
     },
     actions: {
-        async fetchDepartamentos() {
+        async fetch() {
             try {
                 const response = await axios.get(`${API_SERVER}/${API_ENDPOINT}/departamentos`);
-                this.departamentos = response.data
+                this.items = response.data
             } catch (error) {
                 console.log(error)
             }
         },
-        async saveDepartamento(departamento) {
+        async save(departamento) {
             const auth = useAuthStore();
 
             if (auth.isAuthenticated) {
@@ -33,7 +33,7 @@ export const useDepartamentoStore = defineStore("departamento", {
                             'Authorization': auth.token,
                         }
                     });
-                    this.fetchDepartamentos();
+                    this.fetch();
                 } catch (error) {
                     console.log(error)
                 }
@@ -41,7 +41,7 @@ export const useDepartamentoStore = defineStore("departamento", {
                 throw new Error('User must be authenticated')
             }
         },
-        async deleteDepartamento(departamento) {
+        async delete(departamento) {
             const auth = useAuthStore();
 
             if (auth.isAuthenticated) {
@@ -51,7 +51,7 @@ export const useDepartamentoStore = defineStore("departamento", {
                             'Authorization': auth.token,
                         }
                     });
-                    this.fetchDepartamentos();
+                    this.fetch();
                 } catch (error) {
                     console.log(error)
                 }

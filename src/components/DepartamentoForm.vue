@@ -2,21 +2,21 @@
 import { reactive } from 'vue';
 import { useDepartamentoStore } from "@/stores/departamentos.js";
 
-const store = useDepartamentoStore();
+const departamentos = useDepartamentoStore();
 
-const departamento = reactive({
+const nuevoDepartamento = reactive({
     nombre: '',
     telefono: '',
 });
 
 function botonPulsado() {
-    store.saveDepartamento(departamento);
+    departamentos.save(nuevoDepartamento);
     limpiar();
 }
 
 function limpiar() {
-    departamento.nombre = '';
-    departamento.telefono = '';
+    nuevoDepartamento.nombre = '';
+    nuevoDepartamento.telefono = '';
 }
 </script>
 
@@ -26,17 +26,19 @@ function limpiar() {
             <label class="form-label" for="nombre">Nombre</label>
             <input class="form-control" placeholder="Escribe algo..." id="nombre" type="text"
                    @keyup.enter="botonPulsado()"
-                   v-model="departamento.nombre"/>
+                   v-model="nuevoDepartamento.nombre"/>
         </div>
         <div class="mb-3">
             <label class="form-label" for="telefono">Teléfono</label>
             <input class="form-control" placeholder="Escribe algo..." id="telefono" type="text"
                    @keyup.enter="botonPulsado()"
-                   v-model="departamento.telefono"/>
+                   v-model="nuevoDepartamento.telefono"/>
         </div>
         <div>
-            <button class="btn btn-primary" :disabled="!departamento.nombre" @click="botonPulsado()">Guardar</button>
-            <button class="btn btn-link link-dark" :disabled="!departamento.nombre" @click="limpiar()">Cancelar</button>
+            <button class="btn btn-primary" :disabled="!nuevoDepartamento.nombre" @click="botonPulsado()">Guardar
+            </button>
+            <button class="btn btn-link link-dark" :disabled="!nuevoDepartamento.nombre" @click="limpiar()">Cancelar
+            </button>
         </div>
     </div>
 </template>
