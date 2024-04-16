@@ -21,7 +21,7 @@ const auth = useAuthStore();
             <th v-if="auth.isAuthenticated"></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="align-middle">
         <tr v-for="departamento in store.departamentos" :key="departamento.id">
             <td>{{ departamento.id }}</td>
             <td>{{ departamento.nombre }}</td>
