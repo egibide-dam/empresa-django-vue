@@ -1,7 +1,7 @@
 <script setup>
 import { useDepartamentoStore } from "@/stores/departamentos";
 import moment from "moment/min/moment-with-locales";
-import { useAuthStore } from "@/stores/auth.store.js";
+import { useAuthStore } from "@/stores/auth.js";
 
 moment.locale('es');
 

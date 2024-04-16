@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import { useAuthStore } from "@/stores/auth.store.js";
+import { useAuthStore } from "@/stores/auth.js";
 
 const usuario = reactive({
     username: '',

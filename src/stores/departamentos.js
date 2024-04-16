@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import axios from "axios"
-import { useAuthStore } from "@/stores/auth.store.js";
+import { useAuthStore } from "@/stores/auth.js";
 
 const API_SERVER = 'http://localhost:8000';
 const API_ENDPOINT = 'api';
