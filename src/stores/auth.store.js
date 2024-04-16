@@ -12,14 +12,20 @@ export const useAuthStore = defineStore({
     getters: {
         isAuthenticated(state) {
             return state.user !== null;
-        }
+        },
+        token(state) {
+            return `JWT ${state.user.access}`;
+        },
     },
     actions: {
         async login(username, password) {
-            const response = await axios.post(`${API_SERVER}/${API_ENDPOINT}/create`, {username, password});
-            this.user = response.data;
-            console.log(response)
-            localStorage.setItem('user', JSON.stringify(response.data));
+            try {
+                const response = await axios.post(`${API_SERVER}/${API_ENDPOINT}/create`, {username, password});
+                this.user = response.data;
+                localStorage.setItem('user', JSON.stringify(response.data));
+            } catch (error) {
+                console.log(error)
+            }
         },
         logout() {
             this.user = null;

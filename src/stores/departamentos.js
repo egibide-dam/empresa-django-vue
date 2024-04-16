@@ -10,15 +10,15 @@ export const useDepartamentoStore = defineStore("departamento", {
         departamentos: [],
     }),
     getters: {
-        getNumDepartamentos(state) {
+        numDepartamentos(state) {
             return state.departamentos.length;
         }
     },
     actions: {
         async fetchDepartamentos() {
             try {
-                const data = await axios.get(`${API_SERVER}/${API_ENDPOINT}/departamentos`);
-                this.departamentos = data.data
+                const response = await axios.get(`${API_SERVER}/${API_ENDPOINT}/departamentos`);
+                this.departamentos = response.data
             } catch (error) {
                 console.log(error)
             }
@@ -26,11 +26,11 @@ export const useDepartamentoStore = defineStore("departamento", {
         async saveDepartamento(departamento) {
             const auth = useAuthStore();
 
-            if (auth.user !== null) {
+            if (auth.isAuthenticated) {
                 try {
                     const response = await axios.post(`${API_SERVER}/${API_ENDPOINT}/departamentos`, departamento, {
                         headers: {
-                            'Authorization': `JWT ${auth.user.access}`,
+                            'Authorization': auth.token,
                         }
                     });
                     this.fetchDepartamentos();

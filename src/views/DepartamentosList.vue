@@ -8,7 +8,7 @@ const store = useDepartamentoStore();
 </script>
 
 <template>
-    <table v-if="store.getNumDepartamentos" class="table table-responsive">
+    <table v-if="store.numDepartamentos" class="table table-responsive">
         <thead>
         <tr class="table-dark">
             <th>#</th>
