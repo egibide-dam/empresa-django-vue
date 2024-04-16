@@ -25,11 +25,13 @@ function limpiar() {
         <div class="mb-3">
             <label class="form-label" for="nombre">Nombre</label>
             <input class="form-control" placeholder="Escribe algo..." id="nombre" type="text"
+                   @keyup.enter="botonPulsado()"
                    v-model="departamento.nombre"/>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="telefono">Telefono</label>
+            <label class="form-label" for="telefono">Teléfono</label>
             <input class="form-control" placeholder="Escribe algo..." id="telefono" type="text"
+                   @keyup.enter="botonPulsado()"
                    v-model="departamento.telefono"/>
         </div>
         <div>
