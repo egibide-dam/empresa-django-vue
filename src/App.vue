@@ -1,5 +1,5 @@
 <script setup>
-import Menu from "@/views/Menu.vue";
+import Menu from "@/components/Menu.vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 </script>

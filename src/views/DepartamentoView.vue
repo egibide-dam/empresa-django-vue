@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
 import { useDepartamentoStore } from "@/stores/departamentos";
-import DepartamentosList from "@/views/DepartamentosList.vue";
-import DepartamentoForm from "@/views/DepartamentoForm.vue";
+import DepartamentosList from "@/components/DepartamentoList.vue";
+import DepartamentoForm from "@/components/DepartamentoForm.vue";
 import { useAuthStore } from "@/stores/auth.store.js";
 
 const store = useDepartamentoStore();
