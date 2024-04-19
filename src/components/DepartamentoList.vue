@@ -15,9 +15,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <table v-if="departamentos.length" class="table table-responsive">
+    <table v-if="departamentos.length" class="table table-responsive table-striped">
         <thead>
-        <tr class="table-dark">
+        <tr class="table-secondary">
             <th>#</th>
             <th>Nombre</th>
             <th>Teléfono</th>
@@ -36,7 +36,7 @@ onMounted(() => {
                 {{ moment(departamento.updated).fromNow() }}
             </td>
             <td v-if="auth.isAuthenticated">
-                <button class="btn btn-danger" title="Borrar"
+                <button class="btn btn-sm btn-danger" title="Borrar"
                         @click="departamentos.delete(departamento)">
                     <i class="bi bi-trash"></i>
                 </button>

@@ -13,9 +13,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <table v-if="habilidades.length" class="table table-responsive">
+    <table v-if="habilidades.length" class="table table-responsive table-striped">
         <thead>
-        <tr class="table-dark">
+        <tr class="table-secondary">
             <th>#</th>
             <th>Nombre</th>
             <th>Fecha de alta</th>
