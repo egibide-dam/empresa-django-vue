@@ -11,3 +11,5 @@ Aplicación Vue de ejemplo con API REST.
 - [Vue 3 + Pinia - JWT Authentication Tutorial & Example](https://jasonwatmore.com/post/2022/05/26/vue-3-pinia-jwt-authentication-tutorial-example)
 - [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
 - [Using Axios to set request headers](https://blog.logrocket.com/using-axios-set-request-headers/)
+- [Vue 3 + Vite - Access Environment Variables from dotenv (.env)](https://jasonwatmore.com/post/2022/05/28/vue-3-vite-access-environment-variables-from-dotenv-env)
+- [Env Variables and Modes](https://vitejs.dev/guide/env-and-mode.html)

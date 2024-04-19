@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import axios from "axios"
 import { useAuthStore } from "@/stores/auth.js";
 
-const API_SERVER = 'http://localhost:8000';
+const API_SERVER = import.meta.env.VITE_API_SERVER;
 const API_ENDPOINT = 'api';
 
 export const useDepartamentoStore = defineStore("departamentos", {
