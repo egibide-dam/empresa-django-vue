@@ -1,5 +1,5 @@
 <script setup>
-import DepartamentosList from "@/components/DepartamentoList.vue";
+import DepartamentoList from "@/components/DepartamentoList.vue";
 import DepartamentoForm from "@/components/DepartamentoForm.vue";
 import { useAuthStore } from "@/stores/auth.js";
 
@@ -8,7 +8,7 @@ const auth = useAuthStore();
 
 <template>
     <h1>Departamentos</h1>
-    <DepartamentosList/>
+    <DepartamentoList/>
     <template v-if="auth.isAuthenticated">
         <h2>Nuevo departamento</h2>
         <DepartamentoForm/>
