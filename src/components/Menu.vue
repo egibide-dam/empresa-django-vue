@@ -17,6 +17,10 @@
                     <i class="bi bi-hand-thumbs-up me-2"></i>
                     <span>Habilidades</span>
                 </RouterLink>
+                <RouterLink class="nav-link" to="/empleados">
+                    <i class="bi bi-person me-2"></i>
+                    <span>Empleados</span>
+                </RouterLink>
             </li>
         </ul>
     </nav>
