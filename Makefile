@@ -4,7 +4,7 @@ help: _header
 	${info }
 	@echo Opciones:
 	@echo ----------------------
-	@echo build
+	@echo build / install
 	@echo start / stop / restart
 	@echo workspace
 	@echo clean
@@ -23,6 +23,9 @@ _urls:
 
 build:
 	@docker compose build --pull
+
+install:
+	@docker compose run --rm vue npm install
 
 _start-command:
 	@docker compose up -d

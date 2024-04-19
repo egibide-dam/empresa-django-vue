@@ -27,13 +27,19 @@ Aplicación Vue de ejemplo con API REST.
     make build
     ```
 
-3. Arrancar el contenedor:
+3. Instalar las dependencias de Node.js:
+
+    ```shell
+    make install
+    ```
+
+4. Arrancar el contenedor:
 
     ```shell
     make start
     ```
 
-4. Acceder a [la aplicación](http://localhost:5173).
+5. Acceder a [la aplicación](http://localhost:5173).
 
 ## Referencias
 
