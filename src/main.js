@@ -1,5 +1,6 @@
 import './assets/bootstrap.scss'
 import * as bootstrap from 'bootstrap'
+import '@/assets/darkmode.js'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
