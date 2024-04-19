@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
-import axios from "axios"
+import { defineStore } from 'pinia';
+import axios from "axios";
 import { useAuthStore } from "@/stores/auth.js";
 
 const API_SERVER = import.meta.env.VITE_API_SERVER;
@@ -18,9 +18,9 @@ export const useDepartamentoStore = defineStore("departamentos", {
         async fetch() {
             try {
                 const response = await axios.get(`${API_SERVER}/${API_ENDPOINT}/departamentos`);
-                this.items = response.data
+                this.items = response.data;
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
         },
         async save(departamento) {
@@ -35,10 +35,10 @@ export const useDepartamentoStore = defineStore("departamentos", {
                     });
                     this.fetch();
                 } catch (error) {
-                    console.log(error)
+                    console.log(error);
                 }
             } else {
-                throw new Error('User must be authenticated')
+                throw new Error('User must be authenticated');
             }
         },
         async delete(departamento) {
@@ -53,11 +53,11 @@ export const useDepartamentoStore = defineStore("departamentos", {
                     });
                     this.fetch();
                 } catch (error) {
-                    console.log(error)
+                    console.log(error);
                 }
             } else {
-                throw new Error('User must be authenticated')
+                throw new Error('User must be authenticated');
             }
         }
-    },
-})
+    }
+});

@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
-import axios from "axios"
+import { defineStore } from 'pinia';
+import axios from "axios";
 import { computed, ref } from "vue";
 
 const API_SERVER = import.meta.env.VITE_API_SERVER;
@@ -14,11 +14,11 @@ export const useEmpleadoStore = defineStore('empleados', () => {
     async function fetch() {
         try {
             const response = await axios.get(`${API_SERVER}/${API_ENDPOINT}`);
-            items.value = response.data
+            items.value = response.data;
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
     return { items, length, fetch }
-})
+});
