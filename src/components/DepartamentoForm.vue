@@ -45,29 +45,31 @@ function limpiar() {
 </script>
 
 <template>
-    <div class="card p-3 col-4">
-        <div class="mb-3">
-            <label class="form-label" for="nombre">Nombre</label>
-            <input class="form-control" placeholder="Escribe algo..." id="nombre" type="text"
-                   @keyup.enter="botonPulsado()"
-                   v-model="nuevoDepartamento.nombre"/>
-            <p class="alert alert-warning mt-3" v-for="error of v$.nombre.$errors" :key="error.$uid">
-                {{ error.$message }}
-            </p>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="telefono">Teléfono</label>
-            <input class="form-control" placeholder="Escribe algo..." id="telefono" type="text"
-                   @keyup.enter="botonPulsado()"
-                   v-model="nuevoDepartamento.telefono"/>
-            <p class="alert alert-warning mt-3" v-for="error of v$.telefono.$errors" :key="error.$uid">
-                {{ error.$message }}
-            </p>
-        </div>
-        <div>
-            <button class="btn btn-primary" :disabled="v$.$invalid" @click="botonPulsado()">Guardar</button>
-            <button class="btn btn-link link-dark" :disabled="!v$.$anyDirty" @click="limpiar()">Cancelar
-            </button>
+    <div class="row p-3">
+        <div class="card p-3 col-12 col-sm-8 col-lg-6 col-xl-4">
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre</label>
+                <input class="form-control" placeholder="Escribe algo..." id="nombre" type="text"
+                       @keyup.enter="botonPulsado()"
+                       v-model="nuevoDepartamento.nombre"/>
+                <p class="alert alert-warning mt-3" v-for="error of v$.nombre.$errors" :key="error.$uid">
+                    {{ error.$message }}
+                </p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="telefono">Teléfono</label>
+                <input class="form-control" placeholder="Escribe algo..." id="telefono" type="text"
+                       @keyup.enter="botonPulsado()"
+                       v-model="nuevoDepartamento.telefono"/>
+                <p class="alert alert-warning mt-3" v-for="error of v$.telefono.$errors" :key="error.$uid">
+                    {{ error.$message }}
+                </p>
+            </div>
+            <div>
+                <button class="btn btn-primary" :disabled="v$.$invalid" @click="botonPulsado()">Guardar</button>
+                <button class="btn btn-link link-dark" :disabled="!v$.$anyDirty" @click="limpiar()">Cancelar
+                </button>
+            </div>
         </div>
     </div>
 </template>
