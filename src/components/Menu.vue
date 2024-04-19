@@ -13,6 +13,10 @@
                     <i class="bi bi-building me-2"></i>
                     <span>Departamentos</span>
                 </RouterLink>
+                <RouterLink class="nav-link" to="/habilidades">
+                    <i class="bi bi-hand-thumbs-up me-2"></i>
+                    <span>Habilidades</span>
+                </RouterLink>
             </li>
         </ul>
     </nav>
