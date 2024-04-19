@@ -2,6 +2,39 @@
 
 Aplicación Vue de ejemplo con API REST.
 
+## Prerrequisitos
+
+1. Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. En Windows, instalar [Scoop](https://scoop.sh) usando PowerShell:
+
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+    ```
+
+   Y después instalar los comandos necesarios:
+
+    ```powershell
+    scoop install make
+    ```
+
+## Puesta en marcha
+
+1. Crear el fichero `.env` a partir de `env-example` y configurar las variables.
+2. Construir el contenedor donde se ejecuta la aplicación:
+
+    ```shell
+    make build
+    ```
+
+3. Arrancar el contenedor:
+
+    ```shell
+    make start
+    ```
+
+4. Acceder a [la aplicación](http://localhost:5173).
+
 ## Referencias
 
 - [How to consume APIs with Vuex, Pinia, and Axios](https://blog.logrocket.com/consume-apis-vuex-pinia-axios)
