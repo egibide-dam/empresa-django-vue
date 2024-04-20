@@ -7,7 +7,7 @@ const API_ENDPOINT = 'api/empleados';
 
 export const useEmpleadoStore = defineStore('empleados', () => {
 
-    const items = ref([]);
+    const items = ref(fetch());
 
     const length = computed(() => items.value.length);
 

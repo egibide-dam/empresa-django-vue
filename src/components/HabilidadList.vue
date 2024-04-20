@@ -1,15 +1,10 @@
 <script setup>
 import moment from "moment/min/moment-with-locales";
-import { onMounted } from "vue";
 import { useHabilidadStore } from "@/stores/habilidades.js";
 
 moment.locale('es');
 
 const habilidades = useHabilidadStore();
-
-onMounted(() => {
-    habilidades.fetch();
-});
 </script>
 
 <template>

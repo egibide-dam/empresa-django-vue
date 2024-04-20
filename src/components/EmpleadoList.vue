@@ -1,15 +1,10 @@
 <script setup>
 import moment from "moment/min/moment-with-locales";
-import { onMounted } from "vue";
 import { useEmpleadoStore } from "@/stores/empleados.js";
 
 moment.locale('es');
 
 const empleados = useEmpleadoStore();
-
-onMounted(() => {
-    empleados.fetch();
-});
 </script>
 
 <template>

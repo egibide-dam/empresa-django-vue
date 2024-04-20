@@ -7,7 +7,7 @@ const API_ENDPOINT = 'api/habilidades';
 
 export const useHabilidadStore = defineStore('habilidades', () => {
 
-    const items = ref([]);
+    const items = ref(fetch());
 
     const length = computed(() => items.value.length);
 
