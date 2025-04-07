@@ -1,35 +1,44 @@
 import { defineStore } from 'pinia';
-import axios from "axios"
+import { computed, ref } from 'vue';
+import axios from "axios";
 
 const API_SERVER = import.meta.env.VITE_API_SERVER;
 const API_ENDPOINT = 'auth/jwt';
 
-export const useAuthStore = defineStore({
-    id: 'auth',
-    state: () => ({
-        user: JSON.parse(localStorage.getItem('user')),
-    }),
-    getters: {
-        isAuthenticated(state) {
-            return state.user !== null;
-        },
-        token(state) {
-            return `JWT ${state.user.access}`;
-        },
-    },
-    actions: {
-        async login(username, password) {
-            try {
-                const response = await axios.post(`${API_SERVER}/${API_ENDPOINT}/create`, { username, password });
-                this.user = response.data;
-                localStorage.setItem('user', JSON.stringify(response.data));
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        logout() {
-            this.user = null;
-            localStorage.removeItem('user');
+export const useAuthStore = defineStore('auth', () => {
+    // state
+    const user = ref(JSON.parse(localStorage.getItem('user')));
+
+    // getters
+    const isAuthenticated = computed(() => user.value !== null);
+    const token = computed(() => `JWT ${user.value?.access}`);
+
+    // actions
+    async function login(username, password) {
+        try {
+            const response = await axios.post(`${API_SERVER}/${API_ENDPOINT}/create`, { username, password });
+            user.value = response.data;
+            localStorage.setItem('user', JSON.stringify(response.data));
+        } catch (error) {
+            console.log(error);
         }
     }
+
+    function logout() {
+        user.value = null;
+        localStorage.removeItem('user');
+    }
+
+    return {
+        // expose state
+        user,
+
+        // expose getters
+        isAuthenticated,
+        token,
+
+        // expose actions
+        login,
+        logout
+    };
 });
