@@ -1,4 +1,4 @@
-# empresa-django-vue
+# EmpresaDjango Vue
 
 Aplicación Vue de ejemplo con API REST.
 
