@@ -1,5 +1,7 @@
 <script setup>
 import Login from "@/components/Login.vue";
+import SelectorTema from "@/components/SelectorTema.vue";
+import Separador from "@/components/Separador.vue";
 </script>
 
 <template>
@@ -17,6 +19,8 @@ import Login from "@/components/Login.vue";
             <ul class="navbar-nav me-auto"></ul>
             <ul class="navbar-nav ms-auto">
                 <Login/>
+                <Separador/>
+                <SelectorTema/>
             </ul>
         </div>
     </nav>

@@ -17,7 +17,7 @@ function iniciarSesion() {
 </script>
 
 <template>
-    <li v-if="!auth.isAuthenticated">
+    <li v-if="!auth.isAuthenticated" class="nav-item">
         <div class="d-flex">
             <input class="form-control me-2" id="username" placeholder="Usuario" type="text"
                    @keyup.enter="iniciarSesion()"
@@ -28,7 +28,7 @@ function iniciarSesion() {
             <button class="btn btn-secondary" @click="iniciarSesion()">Login</button>
         </div>
     </li>
-    <li v-else>
+    <li v-else class="nav-item">
         <button class="btn btn-secondary" @click="auth.logout()">Logout</button>
     </li>
 </template>
